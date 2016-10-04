@@ -21,7 +21,7 @@ It is inarguable that the advent of personal computing has changed the world and
 
 In this exercise, we'll be familiarizing ourselves with a CLI application that has already been built. To experience the user-flow of this application, first open this lab.
 
-Run `learn` 
+Run `rspec` 
 
 You'll need to modify the `greeting` method in `lib/hello_ruby_programmer.rb` so
 that it accepts an argument called `name`.
@@ -70,7 +70,7 @@ In `bin/greeting` you should see the following code:
 ```ruby
 puts "Hi! Welcome to the wonderful world of Ruby programming."
 puts "Please enter your name so that we can greet you more personally:"
-name = gets.strip
+name = gets.chomp
 greeting(name)
 ```
 
@@ -91,7 +91,7 @@ puts "Please enter your name so that we can greet you more personally:"
 3 . Capture that input using `#gets`
 
 ```ruby
-name = gets.strip
+name = gets.chomp
 ```
 
 4 . Use that input to do something else:
@@ -112,7 +112,7 @@ Let's take another look at our code from `bin/greeting`
 ```ruby
 puts "Hi! Welcome to the wonderful world of Ruby programming."
 puts "Please enter your name so that we can greet you more personally:"
-name = gets.strip
+name = gets.chomp
 greeting(name)
 ```
 
@@ -120,9 +120,9 @@ On the third line, the `gets` method is being called. Calling the `gets` method 
 
 ### Waiting for the user Input
 
-If the user never types anything in, your program will wait forever until it is otherwise exited. If you find your tests and your program stalling for long periods of time (anything over 5-10 seconds generally), you might be trapped in a gets.
+If the user never types anything in, your program will wait forever until it is otherwise exited. If you find your tests and your program stalling for long periods of time (anything over 5-10 seconds generally), you might be trapped in a `gets`.
 
-From executing a program, a gets will look like:
+From executing a program, a `gets` will look like:
 
 ![gets in program](https://dl.dropboxusercontent.com/s/ezddrtyotw5ahow/2015-09-10%20at%2012.12%20PM.png)
 
@@ -136,28 +136,18 @@ The return value of `gets` is the text typed into the terminal. So, setting a va
 
 Once we store the return value of `gets` in a variable, we can treat that variable as we would any variable pointing to a string––interpolate with it, convert it to an integer, add it to an array, you name it.
 
-Remember to run `learn submit` so you can move on to the next lesson. 
+### Sanitizing User Input: The `chomp` Method
 
-### Advanced: How `gets` gets input from the terminal
+One thing to know about the `#gets` method is that it captures a new line character at the end of whatever input it is storing. When the user types their response and presses `enter`, the `enter` is captured as an extra line.  We don't want new lines to be appended to the user input we are trying to store. So, we can chain a call to the `#chomp` method to remove any new lines.
 
-We already know, in general terms, how the `puts` method outputs text to the terminal, but here's a reminder from an earlier lesson, "Puts, Print and Return":
+## Practice on your own
 
->How do the puts and print methods actually output text to your console? They use the `$stdout` global variable provided to us by Ruby. You don't need to worry about global variables right now. For the purposes of understanding how puts and print work, we just need to understand the following:
+Want to try it out for yourself?  Create a new file in the root of this repository called `mimick.rb`.
 
->Your computer has a stdout file that communicates with your operating system. So, puts and print actually send output to the `$stdout` variable. The `$stdout` variable sends that information to the stdout file on your computer which in turn communicates with your operating system which in turn outputs that information to the console.
+1. Define a new method `#me_too(name)` that will `puts` the string `NAME??? That's my name too!!!`.  Notice how we're shouting the name.
+2. After your method definition, `puts` a greeting that asks the user for their name.
+3. Use `gets.chomp` and store the result in a variable, such as `user_name`.
+4. Call your `#me_too` method using `user_name` to turn your CLI into a lying mimicker.
+5. Use `ruby mimick.rb` to test it out for yourself.
 
-The `gets` method works similarly. Just like your computer has a standard output file, it has a standard input file. When you enter text in your terminal, you are writing to that file. And, just like Ruby has a `$stdout` global variable, it has a `$stdin` global variable. The `$stdin` variable holds a stream from the standard input. It can be used to read input from the console.
-
-The `gets` method wraps the `$stdin` variable, reading text from the standard input and allowing you to store that text in a variable, so that you can operate on it later.
-
-### Sanitizing User Input: The `strip` and `chomp` Methods
-
-One thing to know about the `#gets` method is that it captures a new line character at the end of whatever input it is storing. We don't want extra whitespace or new lines to be appended to the user input we are trying to store. So, we can chain a call to the `#strip`method to remove any new lines or trailing whitespace.
-
-The `#chomp` method works similarly, and you are likely to see `#gets.chomp` used in some examples online. The `#chomp` method removes any new lines at the end of a string while the `#strip` method removes both trailing whitespace *and* new lines.
-
-
-
-<p data-visibility='hidden'>View <a href='https://learn.co/lessons/ruby-gets-input' title='Objectives'>Objectives</a> on Learn.co and start learning to code for free.</p>
-
-<p class='util--hide'>View <a href='https://learn.co/lessons/ruby-gets-input'>gets CLI Input</a> on Learn.co and start learning to code for free.</p>
+Keep playing! Use what you've learned to turn your CLI into your new best friend (or worst enemy).
