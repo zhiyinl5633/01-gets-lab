@@ -150,4 +150,14 @@ Try it out for yourself! Create a new file in the root of this repository called
 4. Call your `#me_too` method using `user_name` to turn your CLI into a lying mimicker.
 5. Use `ruby mimick.rb` to test it out for yourself.
 
-Keep playing! Use what you've learned to turn your CLI into your new best friend (or worst enemy).
+### #gets data types
+
+By default, the return value of `#gets` is always a string.  So if you ever ask the user for a number, make sure to include the `.to_i` method to convert it to an integer.
+
+For example: `user_age = gets.chomp.to_i`
+
+Conversely, if you ever need to go in the other direction, `.to_s` will convert a number into a string.
+
+## Keep playing!
+
+Use what you've learned to turn your CLI into your new best friend (or worst enemy).
