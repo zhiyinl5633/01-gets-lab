@@ -142,7 +142,7 @@ One thing to know about the `#gets` method is that it captures a new line charac
 
 ## Practice on your own
 
-Want to try it out for yourself?  Create a new file in the root of this repository called `mimick.rb`.
+Try it out for yourself! Create a new file in the root of this repository called `mimick.rb`.
 
 1. Define a new method `#me_too(name)` that will `puts` the string `NAME??? That's my name too!!!`.  Notice how we're shouting the name.
 2. After your method definition, `puts` a greeting that asks the user for their name.
