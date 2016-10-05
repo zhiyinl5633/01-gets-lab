@@ -19,7 +19,7 @@ It is inarguable that the advent of personal computing has changed the world and
  3. Capture and store that input.
  4. Do something with that input.
 
-In this exercise, we'll be familiarizing ourselves with a CLI application that has already been built. To experience the user-flow of this application, first open this lab.
+In this exercise, we'll be familiarizing ourselves with a CLI application that has already been built. To experience the user-flow of this application, first fork and clone this lab.
 
 Run `rspec` 
 
@@ -149,6 +149,8 @@ Try it out for yourself! Create a new file in the root of this repository called
 3. Use `gets.chomp` and store the result in a variable, such as `user_name`.
 4. Call your `#me_too` method using `user_name` to turn your CLI into a lying mimicker.
 5. Use `ruby mimick.rb` to test it out for yourself.
+
+NOTE: there is no `rspec` test for this.
 
 ### #gets data types
 
